@@ -1,0 +1,531 @@
+:root {
+  --all-font-family: Lato, Verdana, sans-serif;
+  --cta-font-family: Nunito Sans, sans-serif;
+  --body-font-color: #323330;
+  --header-font-color: #323330;
+  --header-h1-font-color: #323330;
+  --primary-color: #ca2828;
+
+  /* layout */
+  --left-panel-bg-color: inherit;
+
+  --cta-bg-color: #ca2828;
+  --cta-font-color: #fff;
+  --cta-font-weight: 800;
+
+  --body-font-weight: 300;
+  --h1-font-weight: 800;
+  --h1-font-size: 5rem;
+  --span-light-bold: bold;
+  --span-heavy-bold: 800;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body.index0 .main,
+body.indexfb .main {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+body.index0 .sideground,
+body.indexfb .sideground {
+  background-color: #000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradient-bg {
+  position: relative; /* Essential for positioning the ::before pseudo-element */
+  background-image: url(/assets/images/aiipe-side-image.png);
+  color: white;
+}
+
+.gradient-bg::before {
+  content: ""; /* Required for the pseudo-element to be generated */
+  position: absolute; /* Position relative to the .bg element */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+  z-index: 0; /* Ensure it stays under the content */
+}
+
+/* Ensure content on .bg is positioned above the overlay */
+.gradient-bg * {
+  position: relative;
+  z-index: 1;
+}
+
+.side-image {
+  overflow: hidden; /* Hide parts of the image that exceed container bounds */
+}
+
+.side-image img {
+  height: auto;
+  width: 100%;
+  object-fit: cover; /* Cover the container fully, may be cropped */
+  display: block; /* Remove any default margins or spacing */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  color: var(--body-font-color);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5em;
+  font-family: var(--all-font-family);
+  background-color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--header-font-color);
+  line-height: 1;
+  /* margin: 30px 0; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 20px 0 20px 0;
+}
+
+li {
+  margin: 10px 0 10px 0;
+}
+
+h1 {
+  font-family: var(--cta-font-family);
+  color: var(--header-h1-font-color);
+  font-size: var(--h1-font-size);
+  font-weight: var(--h1-font-weight);
+  margin-top: 40px;
+}
+
+h2,
+p {
+  line-height: 1.3;
+}
+
+.highlight-cta-color {
+  color: var(--cta-bg-color);
+}
+
+.highlight-primary-color {
+  color: var(--primary-color);
+}
+
+.light-bold {
+  font-weight: var(--span-light-bold);
+}
+
+.heavy-bold {
+  font-weight: var(--span-heavy-bold);
+}
+
+@media (max-width: 1200px) {
+  .nomobile {
+    display: none;
+  }
+}
+
+.contained {
+  max-width: 780px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+iframe {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+nav {
+  text-transform: uppercase;
+  text-align: right;
+  color: #ccc;
+  min-height: 2em;
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0 14px 0 12px;
+}
+
+nav div.sitename {
+  text-transform: none;
+  float: left;
+}
+
+nav div.sitename A {
+  padding-left: 0;
+}
+
+input[type="email"] {
+  outline: none;
+  border: 2px solid #ccc;
+}
+
+input[type="email"]:focus {
+  outline: none;
+  border: 2px solid var(--cta-bg-color);
+  border-radius: 2px;
+  box-shadow: 0px 0px 2px var(--cta-bg-color);
+}
+
+main {
+  clear: both;
+}
+
+/* PAGE SPECIFIC STYLES */
+@media (min-width: 1200px) {
+  body.index0,
+  body.indexfb {
+    border-top-width: 0;
+  }
+}
+
+body.index0 HEADER,
+body.indexfb HEADER {
+  display: none;
+}
+
+body.index0 MAIN,
+body.indexfb MAIN {
+  display: flex;
+  background-color: white;
+}
+
+body.index0 MAIN > DIV,
+body.indexfb MAIN > DIV {
+  min-height: 100vh;
+}
+
+@media (max-width: 1200px) {
+  body.index0 MAIN > DIV,
+  body.indexfb MAIN > DIV {
+    min-height: auto;
+    padding: 2vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  body.index0 MAIN,
+  body.indexfb MAIN {
+    flex-direction: column;
+  }
+}
+
+body.index0 .main,
+body.indexfb .main {
+  background-color: var(--left-panel-bg-color);
+  order: 1;
+  flex: 2;
+  min-width: 540px;
+  max-width: 840px;
+  width: 40%;
+  padding: 0 2vw;
+}
+
+@media (max-width: 1200px) {
+  body.index0 .main,
+  body.indexfb .main {
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 3vw 5vw 3vw;
+  }
+
+  .main :where(p, span, h1, h2) {
+    text-align: left;
+  }
+
+  .main .form {
+    flex-wrap: wrap;
+  }
+}
+
+body.index0 .sideground,
+body.indexfb .sideground {
+  background-color: var(--primary-color);
+  order: 2;
+  /* padding-top: 8vh; */
+  flex: 2;
+}
+
+@media (max-width: 1200px) {
+  body.index0 .sideground,
+  body.indexfb .sideground {
+    overflow: none;
+    padding: 5vh 0;
+    order: 1;
+  }
+}
+
+body.index0 .sideground img.preview,
+body.indexfb .sideground img.preview {
+  max-width: 75%;
+  border: 1px solid var(--primary-color);
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 3px 20px;
+}
+
+:root {
+  --red: var(--primary-color);
+}
+
+.main * {
+  text-align: left;
+}
+
+.sub-title {
+  margin: 30px 0;
+}
+
+.form {
+  display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.form input {
+  border: 2px solid var(--cta-bg-color);
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  tab-size: 4;
+  box-sizing: border-box;
+  appearance: none;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  width: 100%;
+  /* border-radius: 6px 0px 0px 6px; */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-family: var(--all-font-family);
+  font-size: 1.2rem;
+  border-radius: 6px 6px 0px 0px;
+  text-align: center;
+}
+
+.form input:focus {
+  border: 2px solid var(--cta-bg-color);
+  border-radius: 6px 6px 0px 0px;
+}
+
+@media (max-width: 1200px) {
+  .form input {
+    border-radius: 6px 6px 0px 0px;
+    text-align: center;
+  }
+}
+
+.form .button-red {
+  background-color: var(--cta-bg-color);
+  border: 1px solid var(--cta-bg-color);
+  color: var(--cta-font-color);
+  font-weight: var(--cta-font-weight);
+  /* white-space: pre; */
+  appearance: button;
+  tab-size: 4;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  transition: background-color 0.3s ease; /* Smooth transition for color change */
+  border-radius: 0px 0px 6px 6px;
+  padding: 0.9rem 1rem;
+  box-shadow: 0px 0px 2px var(--cta-bg-color);
+  font-family: var(--cta-font-family);
+  font-size: 1.7rem;
+  width: 100%;
+  text-align: center;
+}
+
+.form input:disabled {
+  background-color: #f2f2f2; /* Light grey background to indicate it's not active */
+  color: #cccccc; /* Dimmed text color */
+  border: 1px solid #cccccc; /* Matching border to make it cohesive */
+  cursor: not-allowed; /* Shows a 'not-allowed' cursor on hover */
+  box-shadow: 0px 0px 2px #bbbbbb;
+}
+
+/* Style for disabled buttons */
+.form .button-red:disabled {
+  background-color: #cccccc; /* Grey background to show it's not clickable */
+  color: #666666; /* Darker text color but still shows it's disabled */
+  border: 1px solid #bbbbbb; /* Slightly darker border for depth */
+  cursor: not-allowed; /* Shows a 'not-allowed' cursor on hover */
+  opacity: 0.7; /* Optional: makes the button appear faded */
+  box-shadow: 0px 0px 2px #bbbbbb;
+}
+
+@media (max-width: 1200px) {
+  .form .button-red {
+    width: 100%;
+    border-radius: 0px 0px 6px 6px;
+    text-align: center;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.thick-underline {
+  text-decoration-thickness: 3px;
+}
+
+.primary-color-underline {
+  text-decoration-color: #ca2828;
+}
+
+.top-eyebrow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-eyebrow {
+  font-weight: bold;
+  background-color: #e9e9e9;
+  text-transform: uppercase;
+  color: var(--body-font-color);
+  padding: 7px;
+  border-radius: 6px;
+}
+
+.footer {
+  margin: 30px 0 40px 0;
+}
+
+.footer a {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color) !important;
+}
+
+.sub-title a {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.tool-logos,
+.university-logos {
+  font-size: 0.7rem;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Horizontally align all items in the container */
+  align-items: center; /* Vertically align items (optional) */
+  gap: 20px 1vw; /* Space between items */
+  padding: 0;
+  margin: 0;
+}
+
+.tool-logos {
+  justify-content: space-around;
+}
+
+.tool-logos li {
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+}
+
+.tool-logos img,
+.university-logos img {
+  height: auto;
+  max-width: 32px;
+}
+
+.red-circle {
+  width: 10px;
+  height: 10px;
+}
+
+ul.custom-checklist-yes {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0 0 0 20px;
+  margin-bottom: 20px;
+}
+
+ul.custom-checklist-yes li::before {
+  content: "✓";
+  color: var(--primary-color);
+  font-weight: bold; /* Make it bold */
+  display: inline-block;
+  width: 1em; /* Space before text */
+  margin-left: -1em; /* Align with list content */
+  margin-right: 5px;
+}
+
+ul.custom-checklist-no {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0 0 0 20px;
+  margin-bottom: 20px;
+}
+
+ul.custom-checklist-no li::before {
+  content: "📕 ";
+  color: var(--primary-color);
+  font-weight: bold; /* Make it bold */
+  display: inline-block;
+  width: 1em; /* Space before text */
+  margin-left: -1em; /* Align with list content */
+  margin-right: 5px;
+}
+
+.cross-out-price {
+  text-decoration: line-through;
+}
+
+@media (max-width: 1200px) {
+  .red-circle {
+    width: 10px;
+    height: 10px;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin-top: 30px;
+  }
+
+  .top-eyebrow-container {
+    justify-content: center;
+  }
+}
+
+.stripe-buy-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
