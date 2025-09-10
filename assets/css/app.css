@@ -38,7 +38,7 @@ body.indexfb .main {
 
 body.index0 .sideground,
 body.indexfb .sideground {
-  background-color: #000 !important;
+  background-color: #e9e9e9 !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@ body {
   font-size: 16px;
   line-height: 1.5em;
   font-family: var(--all-font-family);
-  background-color: #000;
+  background-color: #e9e9e9;
 }
 
 h1,
@@ -220,7 +220,7 @@ body.indexfb HEADER {
 body.index0 MAIN,
 body.indexfb MAIN {
   display: flex;
-  background-color: white;
+  background-color: #e9e9e9;
 }
 
 body.index0 MAIN > DIV,
@@ -245,13 +245,14 @@ body.indexfb MAIN > DIV {
 
 body.index0 .main,
 body.indexfb .main {
-  background-color: var(--left-panel-bg-color);
+  background-color: white;
   order: 1;
   flex: 2;
   min-width: 540px;
   max-width: 840px;
   width: 40%;
   padding: 0 2vw;
+  margin: 0 auto;
 }
 
 @media (max-width: 1200px) {
